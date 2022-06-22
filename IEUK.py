@@ -14,6 +14,8 @@ import pandas as pd
 class Grid:
     
     def __init__(self):
+        #setting up the grid(dataframe), including the wall
+        #the wall noted with obstacles to avoid index out of bounds
         self.df = pd.DataFrame(np.zeros((12, 12)))
         self.df.index = ['Wall', '0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'Wall']
         self.df.columns = ['Wall', '0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'Wall']
@@ -50,6 +52,7 @@ class Grid:
             tuplist = [self.x-1, self.y-1]
             self.plist.append(tuplist.copy())
             
+            #my testing sequence
             if self.df.iloc[self.y + 1, self.x +1] == 0:
                 self.x = self.x + 1
                 self.y = self.y +1
